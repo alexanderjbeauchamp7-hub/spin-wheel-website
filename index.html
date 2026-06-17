@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spin the Wheel</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #111827;
+      color: white;
+      text-align: center;
+    }
+
+    main {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    .wheel-wrapper {
+      position: relative;
+      width: 500px;
+      max-width: 90vw;
+    }
+
+    canvas {
+      width: 100%;
+      height: auto;
+      transition: transform 4s cubic-bezier(0.17, 0.67, 0.12, 0.99);
+    }
+
+    .pointer {
+      position: absolute;
+      top: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 18px solid transparent;
+      border-right: 18px solid transparent;
+      border-top: 38px solid #facc15;
+      z-index: 2;
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 14px 34px;
+      font-size: 20px;
+      font-weight: bold;
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+      background: #22c55e;
+      color: #052e16;
+    }
+
+    button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    #result {
+      margin-top: 24px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Spin the Wheel</h1>
+
+    <div class="wheel-wrapper">
+      <div class="pointer"></div>
+      <canvas id="wheel" width="500" height="500"></canvas>
+    </div>
+
+    <button id="spinBtn">Spin</button>
+
+    <div id="result">Click spin to begin</div>
+  </main>
+
+  <script>
+    const items = [
+      "Thing 1", "Thing 2", "Thing 3", "Thing 4", "Thing 5",
+      "Thing 6", "Thing 7", "Thing 8", "Thing 9", "Thing 10",
+      "Thing 11", "Thing 12", "Thing 13", "Thing 14", "Thing 15",
+      "Thing 16", "Thing 17", "Thing 18", "Thing 19", "Thing 20"
+    ];
+
+    const canvas = document.getElementById("wheel");
+    const ctx = canvas.getContext("2d");
+    const spinBtn = document.getElementById("spinBtn");
+    const result = document.getElementById("result");
+
+    const size = canvas.width;
+    const center = size / 2;
+    const sliceAngle = (2 * Math.PI) / items.length;
+
+    let currentRotation = 0;
+    let spinning = false;
+
+    function drawWheel() {
+      ctx.clearRect(0, 0, size, size);
+
+      for (let i = 0; i < items.length; i++) {
+        const startAngle = i * sliceAngle;
+        const endAngle = startAngle + sliceAngle;
+
+        ctx.beginPath();
+        ctx.moveTo(center, center);
+        ctx.arc(center, center, center - 10, startAngle, endAngle);
+        ctx.closePath();
+
+        ctx.fillStyle = i % 2 === 0 ? "#3b82f6" : "#ef4444";
+        ctx.fill();
+
+        ctx.strokeStyle = "#ffffff";
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        ctx.save();
+        ctx.translate(center, center);
+        ctx.rotate(startAngle + sliceAngle / 2);
+        ctx.textAlign = "right";
+        ctx.fillStyle = "white";
+        ctx.font = "bold 15px Arial";
+        ctx.fillText(items[i], center - 25, 5);
+        ctx.restore();
+      }
+
+      ctx.beginPath();
+      ctx.arc(center, center, 45, 0, Math.PI * 2);
+      ctx.fillStyle = "#111827";
+      ctx.fill();
+
+      ctx.fillStyle = "white";
+      ctx.font = "bold 18px Arial";
+      ctx.textAlign = "center";
+      ctx.fillText("SPIN", center, center + 6);
+    }
+
+    function spinWheel() {
+      if (spinning) return;
+
+      spinning = true;
+      spinBtn.disabled = true;
+      result.textContent = "Spinning...";
+
+      const randomIndex = Math.floor(Math.random() * items.length);
+      const degreesPerSlice = 360 / items.length;
+
+      const winningAngle = 270 - randomIndex * degreesPerSlice - degreesPerSlice / 2;
+      const extraSpins = 5 * 360;
+      const finalRotation = currentRotation + extraSpins + winningAngle;
+
+      canvas.style.transform = `rotate(${finalRotation}deg)`;
+
+      currentRotation = finalRotation % 360;
+
+      setTimeout(() => {
+        result.textContent = `Result: ${items[randomIndex]}`;
+        spinBtn.disabled = false;
+        spinning = false;
+      }, 4000);
+    }
+
+    drawWheel();
+    spinBtn.addEventListener("click", spinWheel);
+  </script>
+</body>
+</html>

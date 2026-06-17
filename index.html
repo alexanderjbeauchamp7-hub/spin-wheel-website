@@ -91,11 +91,32 @@
 
   <script>
     const items = [
-      "Thing 1", "Thing 2", "Thing 3", "Thing 4", "Thing 5",
-      "Thing 6", "Thing 7", "Thing 8", "Thing 9", "Thing 10",
-      "Thing 11", "Thing 12", "Thing 13", "Thing 14", "Thing 15",
-      "Thing 16", "Thing 17", "Thing 18", "Thing 19", "Thing 20"
-    ];
+  "Screen Time Tribute",
+  "Movie or TV Marathon",
+  "Favourite Food Delivery",
+  "Premium Scratches Session",
+  "Short Story of Our Love Story - New Theme Each Time",
+  "TV Show Edit",
+  "No-Complaints Errand Run",
+  "Apology Letter",
+  "Spa Night at Air B&B",
+  "Snack Basket Offering",
+  "Pop Playlist for Us",
+  "Memory Lane Slideshow",
+  "Next Car Maintenance",
+  "Cozy Blanket Fort Night",
+  "Handmade Coupon of Her Choice",
+  "Plan the Next Cute Outing",
+  "Other of Your Choosing",
+  "New Innovative Idea",
+  "Full Day Princess Treatment",
+  "Cook Egyptian Meal of Your Choosing with Tea",
+  "Find New TV Show for Us",
+  "Drives To and From Work for a Week",
+  "Drive Home, Even from Toronto, at Any Time of Your Choosing",
+  "Buy New Article of Clothing of Your Choosing",
+  "Buy New Perfume of Your Choosing"
+];
 
     const canvas = document.getElementById("wheel");
     const ctx = canvas.getContext("2d");
@@ -133,7 +154,7 @@
         ctx.rotate(startAngle + sliceAngle / 2);
         ctx.textAlign = "right";
         ctx.fillStyle = "white";
-        ctx.font = "bold 15px Arial";
+        ctx.font = "bold 11px Arial";
         ctx.fillText(items[i], center - 25, 5);
         ctx.restore();
       }

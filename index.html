@@ -8,6 +8,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link
     href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@700;800;900&display=swap"
     rel="stylesheet"
@@ -51,8 +52,11 @@
     .love-background {
       position: fixed;
       inset: 0;
+
       overflow: hidden;
+
       z-index: 0;
+
       pointer-events: none;
     }
 
@@ -61,6 +65,7 @@
       position: absolute;
 
       font-family: "Caveat", cursive;
+
       font-weight: 700;
 
       color: #ff638e;
@@ -108,6 +113,7 @@
 
     main {
       position: relative;
+
       z-index: 2;
 
       min-height: 100vh;
@@ -129,6 +135,7 @@
       position: relative;
 
       width: min(900px, 82vw);
+
       aspect-ratio: 1 / 1;
 
       display: flex;
@@ -464,6 +471,7 @@
 
     #spinBtn:disabled {
       opacity: 0.65;
+
       cursor: not-allowed;
     }
 
@@ -525,6 +533,7 @@
 
       .wheel-wrapper {
         width: 94vw;
+
         margin-top: 25px;
       }
 
@@ -549,6 +558,7 @@
       .pointer {
         width: 62px;
         height: 57px;
+
         top: -25px;
       }
 
@@ -562,6 +572,7 @@
 
       #spinBtn {
         margin-top: 27px;
+
         font-size: 25px;
       }
 
@@ -582,7 +593,9 @@
 <body>
 
 
-  <!-- ROMANTIC BACKGROUND -->
+  <!-- =======================================================
+       BACKGROUND
+       ======================================================= -->
 
   <div
     class="love-background"
@@ -593,7 +606,9 @@
   <main>
 
 
-    <!-- WHEEL -->
+    <!-- =====================================================
+         WHEEL
+         ===================================================== -->
 
     <div class="wheel-wrapper">
 
@@ -614,8 +629,6 @@
       </canvas>
 
 
-      <!-- CENTER BUTTON -->
-
       <div
         class="center-spin"
         id="centerSpin"
@@ -635,14 +648,18 @@
     </div>
 
 
-    <!-- BOTTOM SPIN BUTTON -->
+    <!-- =====================================================
+         BOTTOM BUTTON
+         ===================================================== -->
 
     <button id="spinBtn">
       ♥ &nbsp; SPIN &nbsp; ♥
     </button>
 
 
-    <!-- RESULT -->
+    <!-- =====================================================
+         RESULT
+         ===================================================== -->
 
     <div id="result">
       Click spin to begin
@@ -656,185 +673,267 @@
 
     /* =========================================================
        PRIZES
+
+       IMPORTANT:
+
+       Each item now has:
+
+       text  = full winning message
+
+       lines = individual pieces of text
+
+       font  = individual font size
+
+       The lines will be spread FARTHER APART
+       along the radius of the wheel.
        ========================================================= */
 
     const prizes = [
 
       {
         text: "Screen Time Tribute",
-        lines: ["Screen Time", "Tribute"],
-        font: 28
-      },
-
-      {
-        text: "Movie or TV Marathon",
-        lines: ["Movie or TV", "Marathon"],
+        lines: [
+          "Screen Time",
+          "Tribute"
+        ],
         font: 27
       },
 
       {
-        text: "Favourite Food Delivery",
-        lines: ["Favourite Food", "Delivery"],
+        text: "Movie or TV Marathon",
+        lines: [
+          "Movie or TV",
+          "Marathon"
+        ],
         font: 26
       },
 
       {
+        text: "Favourite Food Delivery",
+        lines: [
+          "Favourite Food",
+          "Delivery"
+        ],
+        font: 25
+      },
+
+      {
         text: "Premium Scratches Session",
-        lines: ["Premium", "Scratches", "Session"],
-        font: 24
+        lines: [
+          "Premium",
+          "Scratches",
+          "Session"
+        ],
+        font: 23
       },
 
       {
         text: "Short Story of Our Love Story - New Theme Each Time",
         lines: [
-          "Short Story of",
-          "Our Love Story",
+          "Short Story",
+          "of Our Love",
+          "Story",
           "New Theme",
           "Each Time"
         ],
-        font: 19
+        font: 18
       },
 
       {
         text: "TV Show Edit",
-        lines: ["TV Show", "Edit"],
+        lines: [
+          "TV Show",
+          "Edit"
+        ],
         font: 29
       },
 
       {
         text: "No-Complaints Errand Run",
-        lines: ["No-Complaints", "Errand Run"],
-        font: 24
+        lines: [
+          "No-Complaints",
+          "Errand Run"
+        ],
+        font: 23
       },
 
       {
         text: "Apology Letter",
-        lines: ["Apology", "Letter"],
-        font: 29
+        lines: [
+          "Apology",
+          "Letter"
+        ],
+        font: 28
       },
 
       {
         text: "Spa Night at Air B&B",
-        lines: ["Spa Night", "at Air B&B"],
-        font: 26
+        lines: [
+          "Spa Night",
+          "at Air B&B"
+        ],
+        font: 25
       },
 
       {
         text: "Snack Basket Offering",
-        lines: ["Snack Basket", "Offering"],
-        font: 25
+        lines: [
+          "Snack Basket",
+          "Offering"
+        ],
+        font: 24
       },
 
       {
         text: "Pop Playlist for Us",
-        lines: ["Pop Playlist", "for Us"],
-        font: 26
+        lines: [
+          "Pop Playlist",
+          "for Us"
+        ],
+        font: 25
       },
 
       {
         text: "Memory Lane Slideshow",
-        lines: ["Memory Lane", "Slideshow"],
-        font: 25
+        lines: [
+          "Memory Lane",
+          "Slideshow"
+        ],
+        font: 24
       },
 
       {
         text: "Next Car Maintenance",
-        lines: ["Next Car", "Maintenance"],
-        font: 26
-      },
-
-      {
-        text: "Cozy Blanket Fort Night",
-        lines: ["Cozy Blanket", "Fort Night"],
-        font: 24
-      },
-
-      {
-        text: "Handmade Coupon of Her Choice",
-        lines: ["Handmade Coupon", "of Her Choice"],
-        font: 22
-      },
-
-      {
-        text: "Plan the Next Cute Outing",
-        lines: ["Plan the Next", "Cute Outing"],
-        font: 24
-      },
-
-      {
-        text: "Other of Your Choosing",
-        lines: ["Other of Your", "Choosing"],
+        lines: [
+          "Next Car",
+          "Maintenance"
+        ],
         font: 25
       },
 
       {
+        text: "Cozy Blanket Fort Night",
+        lines: [
+          "Cozy Blanket",
+          "Fort Night"
+        ],
+        font: 23
+      },
+
+      {
+        text: "Handmade Coupon of Her Choice",
+        lines: [
+          "Handmade",
+          "Coupon",
+          "of Her Choice"
+        ],
+        font: 21
+      },
+
+      {
+        text: "Plan the Next Cute Outing",
+        lines: [
+          "Plan the Next",
+          "Cute Outing"
+        ],
+        font: 23
+      },
+
+      {
+        text: "Other of Your Choosing",
+        lines: [
+          "Other of Your",
+          "Choosing"
+        ],
+        font: 24
+      },
+
+      {
         text: "New Innovative Idea",
-        lines: ["New Innovative", "Idea"],
-        font: 26
+        lines: [
+          "New Innovative",
+          "Idea"
+        ],
+        font: 25
       },
 
       {
         text: "Full Day Princess Treatment",
-        lines: ["Full Day", "Princess", "Treatment"],
-        font: 23
+        lines: [
+          "Full Day",
+          "Princess",
+          "Treatment"
+        ],
+        font: 22
       },
 
       {
         text: "Cook Egyptian Meal of Your Choosing with Tea",
         lines: [
           "Cook Egyptian",
-          "Meal of Your",
+          "Meal",
+          "of Your",
           "Choosing",
           "with Tea"
         ],
-        font: 19
+        font: 18
       },
 
       {
         text: "Find New TV Show for Us",
-        lines: ["Find New", "TV Show", "for Us"],
-        font: 23
+        lines: [
+          "Find New",
+          "TV Show",
+          "for Us"
+        ],
+        font: 22
       },
 
       {
         text: "Drives To and From Work for a Week",
         lines: [
-          "Drives To and",
-          "From Work",
+          "Drives To",
+          "and From",
+          "Work",
           "for a Week"
         ],
-        font: 20
+        font: 19
       },
 
       {
         text: "Drive Home, Even from Toronto, at Any Time of Your Choosing",
         lines: [
           "Drive Home",
-          "Even from Toronto",
-          "Any Time of",
-          "Your Choosing"
+          "Even from",
+          "Toronto",
+          "Any Time",
+          "of Your",
+          "Choosing"
         ],
-        font: 17
+        font: 16
       },
 
       {
         text: "Buy New Article of Clothing of Your Choosing",
         lines: [
-          "Buy New Article",
-          "of Clothing",
-          "of Your Choosing"
+          "Buy New",
+          "Article of",
+          "Clothing",
+          "of Your",
+          "Choosing"
         ],
-        font: 19
+        font: 17
       },
 
       {
         text: "Buy New Perfume of Your Choosing",
         lines: [
-          "Buy New Perfume",
+          "Buy New",
+          "Perfume",
           "of Your",
           "Choosing"
         ],
-        font: 20
+        font: 19
       }
 
     ];
@@ -880,8 +979,11 @@
     const innerRadius =
       170;
 
+
     const sliceAngle =
-      (Math.PI * 2) /
+      (
+        Math.PI * 2
+      ) /
       prizes.length;
 
 
@@ -940,7 +1042,10 @@
       (position, index) => {
 
         const phrase =
-          document.createElement("div");
+          document.createElement(
+            "div"
+          );
+
 
         phrase.className =
           "love-line " +
@@ -950,20 +1055,25 @@
               : "small"
           );
 
+
         phrase.innerHTML =
           backgroundPhrases[
             index %
             backgroundPhrases.length
           ];
 
+
         phrase.style.left =
           position[0] + "%";
+
 
         phrase.style.top =
           position[1] + "%";
 
+
         phrase.style.transform =
           `rotate(${position[2]}deg)`;
+
 
         background.appendChild(
           phrase
@@ -979,21 +1089,51 @@
 
     const heartPositions = [
 
-      [17,2],[39,3],[45,7],[57,2],[76,5],[96,3],
+      [17,2],
+      [39,3],
+      [45,7],
+      [57,2],
+      [76,5],
+      [96,3],
 
-      [8,10],[34,12],[61,10],[73,13],[92,12],
+      [8,10],
+      [34,12],
+      [61,10],
+      [73,13],
+      [92,12],
 
-      [4,22],[17,24],[39,21],[82,21],[97,24],
+      [4,22],
+      [17,24],
+      [39,21],
+      [82,21],
+      [97,24],
 
-      [8,37],[19,36],[78,36],[92,38],
+      [8,37],
+      [19,36],
+      [78,36],
+      [92,38],
 
-      [3,53],[17,52],[82,51],[97,54],
+      [3,53],
+      [17,52],
+      [82,51],
+      [97,54],
 
-      [8,69],[21,69],[76,68],[92,70],
+      [8,69],
+      [21,69],
+      [76,68],
+      [92,70],
 
-      [3,85],[16,83],[39,86],[62,84],[81,86],[97,83],
+      [3,85],
+      [16,83],
+      [39,86],
+      [62,84],
+      [81,86],
+      [97,83],
 
-      [8,96],[35,95],[71,96],[91,95]
+      [8,96],
+      [35,95],
+      [71,96],
+      [91,95]
 
     ];
 
@@ -1002,24 +1142,32 @@
       (position, index) => {
 
         const heart =
-          document.createElement("div");
+          document.createElement(
+            "div"
+          );
+
 
         heart.className =
           "heart-bg";
+
 
         heart.textContent =
           index % 3 === 0
             ? "♡"
             : "♥";
 
+
         heart.style.left =
           position[0] + "%";
+
 
         heart.style.top =
           position[1] + "%";
 
+
         heart.style.transform =
           `rotate(${(index % 5 - 2) * 9}deg)`;
+
 
         background.appendChild(
           heart
@@ -1043,14 +1191,20 @@
     ) {
 
       const bulb =
-        document.createElement("div");
+        document.createElement(
+          "div"
+        );
+
 
       bulb.className =
         "bulb";
 
 
       const angle =
-        (i / bulbCount) *
+        (
+          i /
+          bulbCount
+        ) *
         Math.PI *
         2;
 
@@ -1093,7 +1247,9 @@
     const colours = [
 
       "#f6bdd0",
+
       "#ff315b",
+
       "#a58bf4"
 
     ];
@@ -1139,15 +1295,17 @@
 
 
         /* =====================================================
-           SLICE
+           DRAW SLICE
            ===================================================== */
 
         ctx.beginPath();
+
 
         ctx.moveTo(
           center,
           center
         );
+
 
         ctx.arc(
           center,
@@ -1156,6 +1314,7 @@
           startAngle,
           endAngle
         );
+
 
         ctx.closePath();
 
@@ -1166,13 +1325,17 @@
             colours.length
           ];
 
+
         ctx.fill();
 
 
         ctx.strokeStyle =
           "#160a12";
 
-        ctx.lineWidth = 4;
+
+        ctx.lineWidth =
+          4;
+
 
         ctx.stroke();
 
@@ -1185,8 +1348,7 @@
 
 
         /*
-         * Move coordinate system to center
-         * of wheel.
+         * Put origin in center of wheel.
          */
 
         ctx.translate(
@@ -1196,8 +1358,8 @@
 
 
         /*
-         * Rotate so positive X points directly
-         * OUTWARD through the center of this slice.
+         * Point directly outward through
+         * the center of the current wedge.
          */
 
         ctx.rotate(
@@ -1205,62 +1367,8 @@
         );
 
 
-        /*
-         * IMPORTANT:
-         *
-         * We DO NOT rotate another 90 degrees here.
-         *
-         * This means the words run from the center
-         * of the wheel OUT toward the rim.
-         *
-         * That is the spoke-style orientation.
-         */
-
-
         /* =====================================================
-           TEXT FONT
-           ===================================================== */
-
-        ctx.font =
-          `900 ${prize.font}px Inter, Arial`;
-
-
-        ctx.textBaseline =
-          "middle";
-
-
-        /*
-         * White on red.
-         * Dark on pink/lavender.
-         */
-
-        if (
-          i %
-          colours.length === 1
-        ) {
-
-          ctx.fillStyle =
-            "#ffffff";
-
-          ctx.shadowColor =
-            "rgba(60,0,20,0.3)";
-
-        } else {
-
-          ctx.fillStyle =
-            "#120a10";
-
-          ctx.shadowColor =
-            "rgba(255,255,255,0.12)";
-
-        }
-
-
-        ctx.shadowBlur = 2;
-
-
-        /* =====================================================
-           KEEP TEXT UPRIGHT
+           KEEP LEFT-SIDE TEXT READABLE
            ===================================================== */
 
         const normalizedAngle =
@@ -1273,14 +1381,9 @@
           );
 
 
-        let direction = 1;
+        let flipped =
+          false;
 
-
-        /*
-         * On the left side of the wheel,
-         * turn the text around so you don't
-         * have to read it upside down.
-         */
 
         if (
           normalizedAngle >
@@ -1293,97 +1396,203 @@
             Math.PI
           );
 
-          direction = -1;
+
+          flipped =
+            true;
 
         }
 
 
         /* =====================================================
-           POSITION TEXT
+           TEXT STYLE
            ===================================================== */
 
-        /*
-         * Start just outside the center SPIN circle.
-         */
-
-        const startRadius =
-          innerRadius + 55;
+        ctx.font =
+          `900 ${prize.font}px Inter, Arial`;
 
 
-        /*
-         * Put the text block along the LENGTH
-         * of the wedge.
-         */
-
-        const usableLength =
-          radius -
-          startRadius -
-          45;
-
-
-        /*
-         * Center the entire text block between
-         * the middle and outer part of the slice.
-         */
-
-        const textCenter =
-          startRadius +
-          usableLength * 0.52;
-
-
-        /*
-         * Because the writing runs OUTWARD,
-         * the separate lines need to be placed
-         * one after another along the radius,
-         * NOT side-by-side across the wedge.
-         */
-
-        const radialSpacing =
-          prize.font + 13;
-
-
-        const totalLength =
-          (prize.lines.length - 1) *
-          radialSpacing;
+        ctx.textBaseline =
+          "middle";
 
 
         ctx.textAlign =
           "center";
 
 
+        /*
+         * White on red wedges.
+         */
+
+        if (
+          i %
+          colours.length === 1
+        ) {
+
+          ctx.fillStyle =
+            "#ffffff";
+
+
+          ctx.shadowColor =
+            "rgba(60,0,20,0.25)";
+
+        } else {
+
+          ctx.fillStyle =
+            "#120a10";
+
+
+          ctx.shadowColor =
+            "rgba(255,255,255,0.15)";
+
+        }
+
+
+        ctx.shadowBlur =
+          2;
+
+
+        /* =====================================================
+           AVAILABLE SPACE
+
+           This is the key change.
+
+           We use almost the entire length between
+           the center SPIN button and the rim.
+           ===================================================== */
+
+        const innerTextEdge =
+          innerRadius + 65;
+
+
+        const outerTextEdge =
+          radius - 70;
+
+
+        const availableTextLength =
+          outerTextEdge -
+          innerTextEdge;
+
+
+        /*
+         * Determine where every line goes.
+
+         * TWO lines:
+         *
+         *       line 1
+         *
+         *
+         *                 line 2
+         *
+         *
+         * THREE lines:
+         *
+         *       line 1
+         *
+         *             line 2
+         *
+         *                   line 3
+         *
+         * etc.
+         *
+         * They are distributed across the
+         * available wedge length instead of
+         * being packed together.
+         */
+
+
+        let positions = [];
+
+
+        if (
+          prize.lines.length === 1
+        ) {
+
+          positions = [
+            innerTextEdge +
+            availableTextLength *
+            0.55
+          ];
+
+        } else {
+
+          /*
+           * Leave a little breathing room
+           * on both ends.
+           */
+
+          const start =
+            innerTextEdge +
+            availableTextLength *
+            0.08;
+
+
+          const end =
+            outerTextEdge -
+            availableTextLength *
+            0.08;
+
+
+          const spacing =
+            (
+              end -
+              start
+            ) /
+            (
+              prize.lines.length -
+              1
+            );
+
+
+          for (
+            let lineIndex = 0;
+            lineIndex <
+            prize.lines.length;
+            lineIndex++
+          ) {
+
+            positions.push(
+              start +
+              lineIndex *
+              spacing
+            );
+
+          }
+
+        }
+
+
+        /* =====================================================
+           DRAW EACH PIECE
+
+           Every line gets its OWN radial position.
+           ===================================================== */
+
         prize.lines.forEach(
           (line, lineIndex) => {
 
-            /*
-             * Every additional line moves
-             * farther toward the edge.
-             */
-
-            let radialPosition =
-              textCenter -
-              totalLength / 2 +
-              lineIndex *
-              radialSpacing;
+            let x =
+              positions[
+                lineIndex
+              ];
 
 
             /*
-             * When flipped on the left side,
-             * X must also be reversed.
+             * When the coordinate system has
+             * been flipped on the left side,
+             * move in the opposite X direction.
              */
 
-            if (
-              direction === -1
-            ) {
+            if (flipped) {
 
-              radialPosition =
-                -radialPosition;
+              x =
+                -x;
 
             }
 
 
             ctx.fillText(
               line,
-              radialPosition,
+              x,
               0
             );
 
@@ -1402,6 +1611,7 @@
 
       ctx.beginPath();
 
+
       ctx.arc(
         center,
         center,
@@ -1410,10 +1620,14 @@
         Math.PI * 2
       );
 
+
       ctx.strokeStyle =
         "#170911";
 
-      ctx.lineWidth = 12;
+
+      ctx.lineWidth =
+        12;
+
 
       ctx.stroke();
 
@@ -1424,6 +1638,7 @@
 
       ctx.beginPath();
 
+
       ctx.arc(
         center,
         center,
@@ -1432,15 +1647,21 @@
         Math.PI * 2
       );
 
+
       ctx.fillStyle =
         "#130912";
 
+
       ctx.fill();
+
 
       ctx.strokeStyle =
         "#ff3e83";
 
-      ctx.lineWidth = 9;
+
+      ctx.lineWidth =
+        9;
+
 
       ctx.stroke();
 
@@ -1458,7 +1679,8 @@
       }
 
 
-      spinning = true;
+      spinning =
+        true;
 
 
       spinBtn.disabled =
@@ -1474,7 +1696,9 @@
         "Spinning... ♥";
 
 
-      /* RANDOM WINNER */
+      /* =====================================================
+         RANDOM WINNER
+         ===================================================== */
 
       const randomIndex =
         Math.floor(
@@ -1489,14 +1713,14 @@
 
 
       /*
-       * Selected slice center lands
-       * directly under top pointer.
+       * Position center of winning slice
+       * directly under pointer.
        */
 
       const target =
         -(
           randomIndex *
-            degreesPerSlice +
+          degreesPerSlice +
           degreesPerSlice / 2
         );
 
@@ -1529,7 +1753,7 @@
 
 
       /*
-       * 10 full rotations.
+       * Ten full spins.
        */
 
       const extraSpins =
@@ -1551,7 +1775,7 @@
 
 
       /* =====================================================
-         RESULT
+         SHOW WINNER
          ===================================================== */
 
       setTimeout(

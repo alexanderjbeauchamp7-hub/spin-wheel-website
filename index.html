@@ -11,46 +11,60 @@
       box-sizing: border-box;
     }
 
+    html,
     body {
       margin: 0;
-      min-height: 100vh;
+      min-height: 100%;
+    }
+
+    body {
       font-family: Arial, Helvetica, sans-serif;
-
-      background:
-        radial-gradient(circle at center, #243b6b 0%, #111827 55%, #080d18 100%);
-
       color: white;
+      text-align: center;
       overflow-x: hidden;
+
+      /*
+        PINK BACKGROUND
+      */
+      background:
+        radial-gradient(
+          circle at center,
+          #ff9fbe 0%,
+          #f86f9b 35%,
+          #e83f73 70%,
+          #c91f58 100%
+        );
     }
 
 
     /* =========================================================
-       FULL-SCREEN ROMANTIC BACKGROUND
+       REPEATING ROMANTIC BACKGROUND
        ========================================================= */
 
     body::before {
       content:
-        "Alex and Mariam Sitting in a Tree     Alex × Mariam     Alex and Mariam Sitting in a Tree     Alex × Mariam     Alex and Mariam Sitting in a Tree     Alex × Mariam     Alex and Mariam Sitting in a Tree     Alex × Mariam";
+        "Alex and Mariam Sitting in a Tree     Alex × Mariam     Alex ♥ Mariam     Alex and Mariam Sitting in a Tree     Alex × Mariam     Alex ♥ Mariam     Alex and Mariam Sitting in a Tree     Alex × Mariam     Alex ♥ Mariam     Alex and Mariam Sitting in a Tree     Alex × Mariam     Alex ♥ Mariam     Alex and Mariam Sitting in a Tree     Alex × Mariam     Alex ♥ Mariam";
 
       position: fixed;
 
-      top: -20%;
-      left: -20%;
+      top: -25%;
+      left: -25%;
 
-      width: 140%;
-      height: 140%;
+      width: 150%;
+      height: 150%;
 
       z-index: -2;
 
-      font-size: 38px;
+      font-size: 34px;
       font-weight: 900;
-      line-height: 3;
+
+      line-height: 3.4;
 
       letter-spacing: 3px;
 
-      color: rgba(255, 255, 255, 0.075);
+      color: rgba(255, 255, 255, 0.16);
 
-      transform: rotate(-15deg);
+      transform: rotate(-14deg);
 
       white-space: pre-wrap;
 
@@ -58,15 +72,17 @@
     }
 
 
-    /* Additional background layer */
+    /*
+      SECOND LAYER OF BACKGROUND WRITING
+    */
 
     body::after {
       content:
-        "ALEX ♥ MARIAM     ALEX ♥ MARIAM     ALEX ♥ MARIAM     ALEX ♥ MARIAM     ALEX ♥ MARIAM     ALEX ♥ MARIAM     ALEX ♥ MARIAM";
+        "ALEX ♥ MARIAM     ALEX ♥ MARIAM     ALEX ♥ MARIAM     ALEX ♥ MARIAM     ALEX ♥ MARIAM     ALEX ♥ MARIAM     ALEX ♥ MARIAM     ALEX ♥ MARIAM     ALEX ♥ MARIAM";
 
       position: fixed;
 
-      top: -10%;
+      top: -20%;
       left: -20%;
 
       width: 140%;
@@ -79,11 +95,11 @@
 
       line-height: 5;
 
-      letter-spacing: 6px;
+      letter-spacing: 7px;
 
-      color: rgba(250, 204, 21, 0.055);
+      color: rgba(139, 0, 45, 0.13);
 
-      transform: rotate(15deg);
+      transform: rotate(12deg);
 
       white-space: pre-wrap;
 
@@ -92,7 +108,7 @@
 
 
     /* =========================================================
-       MAIN CONTENT
+       MAIN
        ========================================================= */
 
     main {
@@ -104,7 +120,7 @@
       align-items: center;
       justify-content: center;
 
-      padding: 30px 20px 50px;
+      padding: 35px 20px 55px;
 
       position: relative;
     }
@@ -115,67 +131,169 @@
        ========================================================= */
 
     h1 {
-      margin: 0 0 8px;
+      margin: 0;
 
-      font-size: clamp(32px, 5vw, 58px);
+      font-size: clamp(38px, 6vw, 68px);
 
       font-weight: 900;
 
-      letter-spacing: 1px;
+      letter-spacing: 2px;
+
+      color: white;
 
       text-shadow:
-        0 4px 15px rgba(0, 0, 0, 0.45);
+        0 4px 0 #b8174d,
+        0 7px 18px rgba(103, 0, 38, 0.4);
     }
 
 
     .subtitle {
-      margin-bottom: 28px;
+      margin-top: 8px;
+      margin-bottom: 30px;
 
-      font-size: clamp(18px, 2.5vw, 26px);
+      font-size: clamp(19px, 3vw, 28px);
 
-      font-weight: bold;
+      font-weight: 900;
 
-      color: #facc15;
+      color: #fff4b8;
 
       text-shadow:
-        0 3px 10px rgba(0, 0, 0, 0.5);
+        0 3px 8px rgba(107, 0, 38, 0.5);
     }
 
 
     /* =========================================================
-       WHEEL
+       WHEEL AREA
        ========================================================= */
 
     .wheel-wrapper {
       position: relative;
 
-      /*
-        MUCH BIGGER WHEEL
-      */
-
-      width: min(760px, 92vw);
+      width: min(780px, 94vw);
 
       aspect-ratio: 1 / 1;
 
       display: flex;
+
       align-items: center;
       justify-content: center;
 
+      /*
+        Large dramatic shadow
+      */
+
       filter:
-        drop-shadow(0 18px 30px rgba(0, 0, 0, 0.45));
+        drop-shadow(
+          0 25px 35px rgba(111, 0, 45, 0.45)
+        );
+    }
+
+
+    /* =========================================================
+       GOLD OUTER RING
+       ========================================================= */
+
+    .wheel-wrapper::before {
+      content: "";
+
+      position: absolute;
+
+      width: 99%;
+      height: 99%;
+
+      border-radius: 50%;
+
+      background:
+        linear-gradient(
+          135deg,
+          #fff1a8,
+          #d4a72c,
+          #fff5b7,
+          #b98217,
+          #ffe88a,
+          #c69424
+        );
+
+      z-index: 0;
+
+      box-shadow:
+        0 0 0 5px rgba(255, 255, 255, 0.75),
+        0 0 25px rgba(255, 215, 80, 0.8);
     }
 
 
     canvas {
-      width: 100%;
-      height: 100%;
+      position: relative;
+
+      z-index: 1;
+
+      width: 95%;
+      height: 95%;
 
       display: block;
 
+      border-radius: 50%;
+
       transition:
         transform 8s cubic-bezier(0.12, 0.75, 0.15, 1);
+    }
 
-      border-radius: 50%;
+
+    /* =========================================================
+       HEARTS AROUND OUTSIDE
+       ========================================================= */
+
+    .heart {
+      position: absolute;
+
+      z-index: 4;
+
+      font-size: 34px;
+
+      color: #fff0a6;
+
+      text-shadow:
+        0 2px 5px rgba(95, 0, 30, 0.55),
+        0 0 8px rgba(255, 220, 80, 0.7);
+
+      pointer-events: none;
+    }
+
+
+    .heart1 {
+      top: 5%;
+      left: 13%;
+      transform: rotate(-20deg);
+    }
+
+    .heart2 {
+      top: 4%;
+      right: 14%;
+      transform: rotate(20deg);
+    }
+
+    .heart3 {
+      top: 42%;
+      left: -1%;
+      transform: rotate(-15deg);
+    }
+
+    .heart4 {
+      top: 42%;
+      right: -1%;
+      transform: rotate(15deg);
+    }
+
+    .heart5 {
+      bottom: 7%;
+      left: 13%;
+      transform: rotate(20deg);
+    }
+
+    .heart6 {
+      bottom: 7%;
+      right: 13%;
+      transform: rotate(-20deg);
     }
 
 
@@ -186,7 +304,7 @@
     .pointer {
       position: absolute;
 
-      top: -3px;
+      top: -7px;
 
       left: 50%;
 
@@ -195,15 +313,41 @@
       width: 0;
       height: 0;
 
-      border-left: 27px solid transparent;
-      border-right: 27px solid transparent;
+      border-left: 31px solid transparent;
+      border-right: 31px solid transparent;
 
-      border-top: 58px solid #facc15;
+      border-top: 68px solid #ffd84d;
 
-      z-index: 5;
+      z-index: 10;
 
       filter:
-        drop-shadow(0 4px 4px rgba(0, 0, 0, 0.45));
+        drop-shadow(
+          0 5px 5px rgba(86, 0, 25, 0.55)
+        );
+    }
+
+
+    /*
+      White/gold pointer tip
+    */
+
+    .pointer::after {
+      content: "";
+
+      position: absolute;
+
+      top: -65px;
+      left: -7px;
+
+      width: 14px;
+      height: 14px;
+
+      border-radius: 50%;
+
+      background: white;
+
+      box-shadow:
+        0 0 10px #fff6a8;
     }
 
 
@@ -212,26 +356,33 @@
        ========================================================= */
 
     button {
-      margin-top: 38px;
+      margin-top: 40px;
 
-      padding: 17px 52px;
+      padding: 18px 58px;
 
-      font-size: 25px;
+      font-size: 27px;
 
       font-weight: 900;
 
-      border: none;
+      border: 4px solid #ffe78a;
 
       border-radius: 999px;
 
       cursor: pointer;
 
-      background: #22c55e;
+      color: #7d1238;
 
-      color: #052e16;
+      background:
+        linear-gradient(
+          180deg,
+          #fff4a9 0%,
+          #ffd84d 45%,
+          #e9ad20 100%
+        );
 
       box-shadow:
-        0 8px 20px rgba(0, 0, 0, 0.35);
+        0 8px 0 #a86d12,
+        0 14px 25px rgba(102, 0, 35, 0.4);
 
       transition:
         transform 0.15s ease,
@@ -240,20 +391,29 @@
 
 
     button:hover:not(:disabled) {
-      transform: translateY(-2px) scale(1.03);
+      transform:
+        translateY(-3px)
+        scale(1.04);
 
       box-shadow:
-        0 12px 25px rgba(0, 0, 0, 0.4);
+        0 11px 0 #a86d12,
+        0 18px 30px rgba(102, 0, 35, 0.45);
     }
 
 
     button:active:not(:disabled) {
-      transform: scale(0.97);
+      transform:
+        translateY(5px)
+        scale(0.98);
+
+      box-shadow:
+        0 3px 0 #a86d12,
+        0 8px 15px rgba(102, 0, 35, 0.35);
     }
 
 
     button:disabled {
-      opacity: 0.6;
+      opacity: 0.65;
 
       cursor: not-allowed;
     }
@@ -264,22 +424,24 @@
        ========================================================= */
 
     #result {
-      margin-top: 28px;
+      margin-top: 30px;
 
-      padding: 14px 25px;
+      padding: 14px 28px;
 
-      font-size: clamp(22px, 3vw, 32px);
+      max-width: 900px;
 
-      font-weight: 900;
+      min-height: 50px;
 
-      max-width: 850px;
+      font-size: clamp(22px, 3vw, 34px);
 
       line-height: 1.3;
 
-      text-shadow:
-        0 3px 10px rgba(0, 0, 0, 0.5);
+      font-weight: 900;
 
-      min-height: 42px;
+      color: white;
+
+      text-shadow:
+        0 4px 10px rgba(108, 0, 35, 0.6);
     }
 
 
@@ -294,23 +456,27 @@
       }
 
       .subtitle {
-        margin-bottom: 20px;
+        margin-bottom: 18px;
       }
 
       .wheel-wrapper {
-        width: 96vw;
+        width: 97vw;
+      }
+
+      .heart {
+        font-size: 24px;
       }
 
       .pointer {
-        border-left-width: 20px;
-        border-right-width: 20px;
-        border-top-width: 45px;
+        border-left-width: 23px;
+        border-right-width: 23px;
+        border-top-width: 52px;
       }
 
       button {
-        margin-top: 25px;
+        margin-top: 28px;
 
-        padding: 14px 40px;
+        padding: 15px 44px;
 
         font-size: 22px;
       }
@@ -336,12 +502,27 @@
 
     <div class="wheel-wrapper">
 
+      <!-- Hearts around the wheel -->
+
+      <div class="heart heart1">♥</div>
+      <div class="heart heart2">♥</div>
+      <div class="heart heart3">♥</div>
+      <div class="heart heart4">♥</div>
+      <div class="heart heart5">♥</div>
+      <div class="heart heart6">♥</div>
+
+
+      <!-- Pointer -->
+
       <div class="pointer"></div>
+
+
+      <!-- Wheel -->
 
       <canvas
         id="wheel"
-        width="760"
-        height="760">
+        width="900"
+        height="900">
       </canvas>
 
     </div>
@@ -362,40 +543,66 @@
   <script>
 
     /* =========================================================
-       WHEEL ITEMS
+       PRIZES
        ========================================================= */
 
     const items = [
+
       "Screen Time Tribute",
+
       "Movie or TV Marathon",
+
       "Favourite Food Delivery",
+
       "Premium Scratches Session",
+
       "Short Story of Our Love Story - New Theme Each Time",
+
       "TV Show Edit",
+
       "No-Complaints Errand Run",
+
       "Apology Letter",
+
       "Spa Night at Air B&B",
+
       "Snack Basket Offering",
+
       "Pop Playlist for Us",
+
       "Memory Lane Slideshow",
+
       "Next Car Maintenance",
+
       "Cozy Blanket Fort Night",
+
       "Handmade Coupon of Her Choice",
+
       "Plan the Next Cute Outing",
+
       "Other of Your Choosing",
+
       "New Innovative Idea",
+
       "Full Day Princess Treatment",
+
       "Cook Egyptian Meal of Your Choosing with Tea",
+
       "Find New TV Show for Us",
+
       "Drives To and From Work for a Week",
+
       "Drive Home, Even from Toronto, at Any Time of Your Choosing",
+
       "Buy New Article of Clothing of Your Choosing",
+
       "Buy New Perfume of Your Choosing"
+
     ];
 
 
     /* =========================================================
-       CANVAS SETUP
+       SETUP
        ========================================================= */
 
     const canvas =
@@ -411,14 +618,19 @@
       document.getElementById("result");
 
 
-    const size = canvas.width;
+    const size =
+      canvas.width;
 
-    const center = size / 2;
+    const center =
+      size / 2;
 
-    const radius = center - 12;
+    const radius =
+      center - 22;
+
 
     const sliceAngle =
-      (2 * Math.PI) / items.length;
+      (2 * Math.PI) /
+      items.length;
 
 
     let currentRotation = 0;
@@ -438,19 +650,21 @@
       lineHeight
     ) {
 
-      const words = text.split(" ");
+      const words =
+        text.split(" ");
 
-      let lines = [];
+      const lines = [];
 
       let currentLine = "";
 
 
-      for (let word of words) {
+      for (const word of words) {
 
         const testLine =
           currentLine
             ? currentLine + " " + word
             : word;
+
 
         const width =
           ctx.measureText(testLine).width;
@@ -461,13 +675,17 @@
           currentLine
         ) {
 
-          lines.push(currentLine);
+          lines.push(
+            currentLine
+          );
 
-          currentLine = word;
+          currentLine =
+            word;
 
         } else {
 
-          currentLine = testLine;
+          currentLine =
+            testLine;
 
         }
 
@@ -480,21 +698,25 @@
 
 
       const totalHeight =
-        lines.length * lineHeight;
+        lines.length *
+        lineHeight;
 
 
-      lines.forEach((line, index) => {
+      lines.forEach(
+        (line, index) => {
 
-        ctx.fillText(
-          line,
-          x,
-          y -
-            totalHeight / 2 +
-            index * lineHeight +
-            lineHeight / 2
-        );
+          ctx.fillText(
+            line,
+            x,
+            y -
+              totalHeight / 2 +
+              index *
+                lineHeight +
+              lineHeight / 2
+          );
 
-      });
+        }
+      );
 
     }
 
@@ -513,6 +735,22 @@
       );
 
 
+      /*
+        Romantic game-show colours
+      */
+
+      const colours = [
+
+        "#ff4f87",
+        "#9b3fc4",
+        "#e83d6f",
+        "#7136a8",
+        "#ff6b9d",
+        "#b23cc7"
+
+      ];
+
+
       for (
         let i = 0;
         i < items.length;
@@ -523,12 +761,13 @@
           i * sliceAngle;
 
         const endAngle =
-          startAngle + sliceAngle;
+          startAngle +
+          sliceAngle;
 
 
-        /* ---------------------------------------------
+        /* -----------------------------------------
            SLICE
-           --------------------------------------------- */
+        ----------------------------------------- */
 
         ctx.beginPath();
 
@@ -548,35 +787,32 @@
         ctx.closePath();
 
 
-        /*
-          Alternating colours
-        */
-
         ctx.fillStyle =
-          i % 2 === 0
-            ? "#3b82f6"
-            : "#ef4444";
+          colours[
+            i % colours.length
+          ];
 
         ctx.fill();
 
 
         /*
-          Slice borders
+          GOLD DIVIDER
         */
 
         ctx.strokeStyle =
-          "rgba(255,255,255,0.9)";
+          "#ffe27a";
 
-        ctx.lineWidth = 2;
+        ctx.lineWidth = 5;
 
         ctx.stroke();
 
 
-        /* ---------------------------------------------
+        /* -----------------------------------------
            TEXT
-           --------------------------------------------- */
+        ----------------------------------------- */
 
         ctx.save();
+
 
         ctx.translate(
           center,
@@ -589,21 +825,9 @@
           sliceAngle / 2;
 
 
-        ctx.rotate(textAngle);
-
-
-        /*
-          IMPORTANT:
-
-          Larger, easier-to-read text.
-        */
-
-        ctx.font =
-          "900 16px Arial";
-
-
-        ctx.fillStyle =
-          "#ffffff";
+        ctx.rotate(
+          textAngle
+        );
 
 
         ctx.textAlign =
@@ -614,15 +838,36 @@
 
 
         /*
-          Give each phrase more room.
+          Large readable text
         */
+
+        ctx.font =
+          "900 19px Arial";
+
+
+        /*
+          Text shadow
+        */
+
+        ctx.shadowColor =
+          "rgba(70,0,30,0.55)";
+
+        ctx.shadowBlur = 4;
+
+        ctx.shadowOffsetX = 2;
+        ctx.shadowOffsetY = 2;
+
+
+        ctx.fillStyle =
+          "#ffffff";
+
 
         drawWrappedText(
           items[i],
-          center - 38,
+          center - 48,
           0,
-          235,
-          18
+          285,
+          21
         );
 
 
@@ -632,8 +877,8 @@
 
 
       /* =====================================================
-         OUTER RING
-         ===================================================== */
+         OUTER GOLD RING
+      ===================================================== */
 
       ctx.beginPath();
 
@@ -646,7 +891,35 @@
       );
 
       ctx.strokeStyle =
-        "#ffffff";
+        "#fff0a3";
+
+      ctx.lineWidth = 12;
+
+      ctx.stroke();
+
+
+      /* =====================================================
+         INNER GOLD RING
+      ===================================================== */
+
+      ctx.beginPath();
+
+      ctx.arc(
+        center,
+        center,
+        75,
+        0,
+        Math.PI * 2
+      );
+
+      ctx.fillStyle =
+        "#8c1746";
+
+      ctx.fill();
+
+
+      ctx.strokeStyle =
+        "#ffe27a";
 
       ctx.lineWidth = 7;
 
@@ -654,42 +927,20 @@
 
 
       /* =====================================================
-         CENTRE CIRCLE
-         ===================================================== */
-
-      ctx.beginPath();
-
-      ctx.arc(
-        center,
-        center,
-        62,
-        0,
-        Math.PI * 2
-      );
-
-      ctx.fillStyle =
-        "#111827";
-
-      ctx.fill();
-
-
-      ctx.strokeStyle =
-        "#facc15";
-
-      ctx.lineWidth = 5;
-
-      ctx.stroke();
-
-
-      /* =====================================================
          CENTRE HEART
-         ===================================================== */
+      ===================================================== */
+
+      ctx.shadowColor =
+        "rgba(0,0,0,0.35)";
+
+      ctx.shadowBlur = 8;
+
 
       ctx.fillStyle =
         "#ffffff";
 
       ctx.font =
-        "900 27px Arial";
+        "900 43px Arial";
 
       ctx.textAlign =
         "center";
@@ -699,10 +950,14 @@
 
 
       ctx.fillText(
-        "❤️",
+        "♥",
         center,
         center
       );
+
+
+      ctx.shadowColor =
+        "transparent";
 
     }
 
@@ -713,20 +968,24 @@
 
     function spinWheel() {
 
-      if (spinning) return;
+      if (spinning) {
+        return;
+      }
 
 
       spinning = true;
 
-      spinBtn.disabled = true;
+      spinBtn.disabled =
+        true;
+
 
       result.textContent =
-        "Spinning...";
+        "Spinning... ❤️";
 
 
-      /* ---------------------------------------------
-         RANDOM WINNER
-         --------------------------------------------- */
+      /* -----------------------------------------
+         PICK WINNER
+      ----------------------------------------- */
 
       const randomIndex =
         Math.floor(
@@ -736,12 +995,13 @@
 
 
       const degreesPerSlice =
-        360 / items.length;
+        360 /
+        items.length;
 
 
-      /* ---------------------------------------------
-         POSITION WINNING SLICE
-         --------------------------------------------- */
+      /* -----------------------------------------
+         LAND WINNER UNDER POINTER
+      ----------------------------------------- */
 
       const winningAngle =
         270 -
@@ -751,8 +1011,7 @@
 
 
       /*
-        12 complete rotations
-        before landing on the winner.
+        BIG GAME-SHOW SPIN
       */
 
       const extraSpins =
@@ -773,14 +1032,14 @@
         finalRotation % 360;
 
 
-      /* ---------------------------------------------
-         FINISH
-         --------------------------------------------- */
+      /* -----------------------------------------
+         SHOW RESULT
+      ----------------------------------------- */
 
       setTimeout(() => {
 
         result.textContent =
-          `❤️ Result: ${items[randomIndex]}`;
+          `❤️ ${items[randomIndex]} ❤️`;
 
 
         spinBtn.disabled =
@@ -796,7 +1055,7 @@
 
 
     /* =========================================================
-       START
+       INITIALIZE
        ========================================================= */
 
     drawWheel();

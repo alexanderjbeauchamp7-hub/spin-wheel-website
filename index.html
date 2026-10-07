@@ -1,9 +1,11 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Spin the Wheel</title>
+  <title>Alex Loves Mariam</title>
+
   <style>
     body {
       margin: 0;
@@ -11,6 +13,30 @@
       background: #111827;
       color: white;
       text-align: center;
+      overflow-x: hidden;
+    }
+
+    /* Repeating background message */
+    body::before {
+      content:
+        "Alex Loves Mariam     Alex Loves Mariam     Alex Loves Mariam     Alex Loves Mariam     Alex Loves Mariam     Alex Loves Mariam     Alex Loves Mariam     Alex Loves Mariam     Alex Loves Mariam     Alex Loves Mariam";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 120%;
+      height: 120%;
+      z-index: -1;
+
+      font-size: 28px;
+      font-weight: bold;
+      line-height: 2.8;
+      letter-spacing: 2px;
+
+      color: rgba(255, 255, 255, 0.045);
+
+      transform: rotate(-18deg) scale(1.2);
+      pointer-events: none;
+      white-space: pre-wrap;
     }
 
     main {
@@ -35,7 +61,9 @@
     canvas {
       width: 100%;
       height: auto;
-      transition: transform 4s cubic-bezier(0.17, 0.67, 0.12, 0.99);
+
+      /* Longer, smoother spin */
+      transition: transform 8s cubic-bezier(0.12, 0.75, 0.15, 1);
     }
 
     .pointer {
@@ -45,9 +73,11 @@
       transform: translateX(-50%);
       width: 0;
       height: 0;
+
       border-left: 18px solid transparent;
       border-right: 18px solid transparent;
       border-top: 38px solid #facc15;
+
       z-index: 2;
     }
 
@@ -59,6 +89,7 @@
       border: none;
       border-radius: 999px;
       cursor: pointer;
+
       background: #22c55e;
       color: #052e16;
     }
@@ -72,11 +103,15 @@
       margin-top: 24px;
       font-size: 24px;
       font-weight: bold;
+      max-width: 700px;
     }
   </style>
 </head>
+
 <body>
+
   <main>
+
     <h1>Spin the Wheel</h1>
 
     <div class="wheel-wrapper">
@@ -87,116 +122,258 @@
     <button id="spinBtn">Spin</button>
 
     <div id="result">Click spin to begin</div>
+
   </main>
 
+
   <script>
+
     const items = [
-  "Screen Time Tribute",
-  "Movie or TV Marathon",
-  "Favourite Food Delivery",
-  "Premium Scratches Session",
-  "Short Story of Our Love Story - New Theme Each Time",
-  "TV Show Edit",
-  "No-Complaints Errand Run",
-  "Apology Letter",
-  "Spa Night at Air B&B",
-  "Snack Basket Offering",
-  "Pop Playlist for Us",
-  "Memory Lane Slideshow",
-  "Next Car Maintenance",
-  "Cozy Blanket Fort Night",
-  "Handmade Coupon of Her Choice",
-  "Plan the Next Cute Outing",
-  "Other of Your Choosing",
-  "New Innovative Idea",
-  "Full Day Princess Treatment",
-  "Cook Egyptian Meal of Your Choosing with Tea",
-  "Find New TV Show for Us",
-  "Drives To and From Work for a Week",
-  "Drive Home, Even from Toronto, at Any Time of Your Choosing",
-  "Buy New Article of Clothing of Your Choosing",
-  "Buy New Perfume of Your Choosing"
-];
+      "Screen Time Tribute",
+      "Movie or TV Marathon",
+      "Favourite Food Delivery",
+      "Premium Scratches Session",
+      "Short Story of Our Love Story - New Theme Each Time",
+      "TV Show Edit",
+      "No-Complaints Errand Run",
+      "Apology Letter",
+      "Spa Night at Air B&B",
+      "Snack Basket Offering",
+      "Pop Playlist for Us",
+      "Memory Lane Slideshow",
+      "Next Car Maintenance",
+      "Cozy Blanket Fort Night",
+      "Handmade Coupon of Her Choice",
+      "Plan the Next Cute Outing",
+      "Other of Your Choosing",
+      "New Innovative Idea",
+      "Full Day Princess Treatment",
+      "Cook Egyptian Meal of Your Choosing with Tea",
+      "Find New TV Show for Us",
+      "Drives To and From Work for a Week",
+      "Drive Home, Even from Toronto, at Any Time of Your Choosing",
+      "Buy New Article of Clothing of Your Choosing",
+      "Buy New Perfume of Your Choosing"
+    ];
+
 
     const canvas = document.getElementById("wheel");
     const ctx = canvas.getContext("2d");
+
     const spinBtn = document.getElementById("spinBtn");
     const result = document.getElementById("result");
 
     const size = canvas.width;
     const center = size / 2;
+
     const sliceAngle = (2 * Math.PI) / items.length;
 
     let currentRotation = 0;
     let spinning = false;
 
+
     function drawWheel() {
+
       ctx.clearRect(0, 0, size, size);
 
       for (let i = 0; i < items.length; i++) {
+
         const startAngle = i * sliceAngle;
         const endAngle = startAngle + sliceAngle;
 
+        /* Wheel slice */
+
         ctx.beginPath();
+
         ctx.moveTo(center, center);
-        ctx.arc(center, center, center - 10, startAngle, endAngle);
+
+        ctx.arc(
+          center,
+          center,
+          center - 10,
+          startAngle,
+          endAngle
+        );
+
         ctx.closePath();
 
-        ctx.fillStyle = i % 2 === 0 ? "#3b82f6" : "#ef4444";
+        ctx.fillStyle =
+          i % 2 === 0
+            ? "#3b82f6"
+            : "#ef4444";
+
         ctx.fill();
 
         ctx.strokeStyle = "#ffffff";
         ctx.lineWidth = 2;
         ctx.stroke();
 
+
+        /* Text */
+
         ctx.save();
+
         ctx.translate(center, center);
-        ctx.rotate(startAngle + sliceAngle / 2);
+
+        /*
+          Put the text along the same radial direction
+          as the wheel slices.
+        */
+
+        const textAngle =
+          startAngle + sliceAngle / 2;
+
+        ctx.rotate(textAngle);
+
         ctx.textAlign = "right";
+        ctx.textBaseline = "middle";
+
         ctx.fillStyle = "white";
-        ctx.font = "bold 11px Arial";
-        ctx.fillText(items[i], center - 25, 5);
+
+        /*
+          Slightly smaller font so longer phrases
+          fit better around the wheel.
+        */
+
+        ctx.font = "bold 10px Arial";
+
+        /*
+          The text now follows the radial direction
+          of the wheel instead of being horizontal.
+        */
+
+        ctx.fillText(
+          items[i],
+          center - 28,
+          0
+        );
+
         ctx.restore();
       }
 
+
+      /* Centre circle */
+
       ctx.beginPath();
-      ctx.arc(center, center, 45, 0, Math.PI * 2);
+
+      ctx.arc(
+        center,
+        center,
+        45,
+        0,
+        Math.PI * 2
+      );
+
       ctx.fillStyle = "#111827";
+
       ctx.fill();
 
+
+      /* SPIN text */
+
       ctx.fillStyle = "white";
+
       ctx.font = "bold 18px Arial";
+
       ctx.textAlign = "center";
-      ctx.fillText("SPIN", center, center + 6);
+      ctx.textBaseline = "middle";
+
+      ctx.fillText(
+        "SPIN",
+        center,
+        center
+      );
     }
 
+
     function spinWheel() {
+
       if (spinning) return;
 
       spinning = true;
+
       spinBtn.disabled = true;
+
       result.textContent = "Spinning...";
 
-      const randomIndex = Math.floor(Math.random() * items.length);
-      const degreesPerSlice = 360 / items.length;
 
-      const winningAngle = 270 - randomIndex * degreesPerSlice - degreesPerSlice / 2;
-      const extraSpins = 5 * 360;
-      const finalRotation = currentRotation + extraSpins + winningAngle;
+      /* Pick winner */
 
-      canvas.style.transform = `rotate(${finalRotation}deg)`;
+      const randomIndex =
+        Math.floor(
+          Math.random() * items.length
+        );
 
-      currentRotation = finalRotation % 360;
+
+      const degreesPerSlice =
+        360 / items.length;
+
+
+      /*
+        Calculate where the winning slice needs
+        to land underneath the arrow.
+      */
+
+      const winningAngle =
+        270 -
+        randomIndex * degreesPerSlice -
+        degreesPerSlice / 2;
+
+
+      /*
+        MUCH longer spin.
+
+        Previously:
+        5 rotations
+
+        Now:
+        12 rotations
+      */
+
+      const extraSpins = 12 * 360;
+
+
+      const finalRotation =
+        currentRotation +
+        extraSpins +
+        winningAngle;
+
+
+      canvas.style.transform =
+        `rotate(${finalRotation}deg)`;
+
+
+      currentRotation =
+        finalRotation % 360;
+
+
+      /*
+        This must match the CSS animation duration.
+      */
 
       setTimeout(() => {
-        result.textContent = `Result: ${items[randomIndex]}`;
+
+        result.textContent =
+          `Result: ${items[randomIndex]}`;
+
         spinBtn.disabled = false;
+
         spinning = false;
-      }, 4000);
+
+      }, 8000);
+
     }
 
+
     drawWheel();
-    spinBtn.addEventListener("click", spinWheel);
+
+    spinBtn.addEventListener(
+      "click",
+      spinWheel
+    );
+
   </script>
+
 </body>
 </html>
+```

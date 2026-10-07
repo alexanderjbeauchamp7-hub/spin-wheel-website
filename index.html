@@ -46,7 +46,7 @@
 
 
     /* =========================================================
-       ROMANTIC BACKGROUND
+       BACKGROUND
        ========================================================= */
 
     .love-background {
@@ -134,7 +134,7 @@
     .wheel-wrapper {
       position: relative;
 
-      width: min(900px, 82vw);
+      width: min(950px, 86vw);
 
       aspect-ratio: 1 / 1;
 
@@ -305,8 +305,8 @@
     .center-spin {
       position: absolute;
 
-      width: 220px;
-      height: 220px;
+      width: 200px;
+      height: 200px;
 
       left: 50%;
       top: 50%;
@@ -368,7 +368,7 @@
 
 
     .spin-word {
-      font-size: 55px;
+      font-size: 52px;
 
       line-height: 1;
 
@@ -386,7 +386,7 @@
     .center-heart {
       margin-top: 8px;
 
-      font-size: 38px;
+      font-size: 36px;
 
       color: #ff9dcc;
 
@@ -453,12 +453,6 @@
       transform:
         translateY(-2px)
         scale(1.025);
-
-      box-shadow:
-        inset 0 1px 8px rgba(255,255,255,0.4),
-        0 0 10px #ff5593,
-        0 0 32px rgba(255, 34, 112, 0.9),
-        0 10px 18px rgba(0,0,0,0.45);
     }
 
 
@@ -487,7 +481,7 @@
 
       margin-top: 15px;
 
-      width: min(460px, 90vw);
+      width: min(520px, 90vw);
 
       min-height: 72px;
 
@@ -527,32 +521,32 @@
 
       main {
         padding:
-          35px 7px
+          35px 6px
           40px;
       }
 
       .wheel-wrapper {
-        width: 94vw;
+        width: 95vw;
 
         margin-top: 25px;
       }
 
       .center-spin {
-        width: 25%;
-        height: 25%;
+        width: 23%;
+        height: 23%;
       }
 
       .spin-word {
         font-size:
           clamp(
-            23px,
+            22px,
             7vw,
-            43px
+            42px
           );
       }
 
       .center-heart {
-        font-size: 24px;
+        font-size: 23px;
       }
 
       .pointer {
@@ -593,10 +587,6 @@
 <body>
 
 
-  <!-- =======================================================
-       BACKGROUND
-       ======================================================= -->
-
   <div
     class="love-background"
     id="loveBackground">
@@ -605,10 +595,6 @@
 
   <main>
 
-
-    <!-- =====================================================
-         WHEEL
-         ===================================================== -->
 
     <div class="wheel-wrapper">
 
@@ -624,8 +610,8 @@
 
       <canvas
         id="wheel"
-        width="1400"
-        height="1400">
+        width="1600"
+        height="1600">
       </canvas>
 
 
@@ -648,18 +634,10 @@
     </div>
 
 
-    <!-- =====================================================
-         BOTTOM BUTTON
-         ===================================================== -->
-
     <button id="spinBtn">
       ♥ &nbsp; SPIN &nbsp; ♥
     </button>
 
-
-    <!-- =====================================================
-         RESULT
-         ===================================================== -->
 
     <div id="result">
       Click spin to begin
@@ -673,268 +651,59 @@
 
     /* =========================================================
        PRIZES
-
-       IMPORTANT:
-
-       Each item now has:
-
-       text  = full winning message
-
-       lines = individual pieces of text
-
-       font  = individual font size
-
-       The lines will be spread FARTHER APART
-       along the radius of the wheel.
        ========================================================= */
 
     const prizes = [
 
-      {
-        text: "Screen Time Tribute",
-        lines: [
-          "Screen Time",
-          "Tribute"
-        ],
-        font: 27
-      },
+      "Screen Time Tribute",
 
-      {
-        text: "Movie or TV Marathon",
-        lines: [
-          "Movie or TV",
-          "Marathon"
-        ],
-        font: 26
-      },
+      "Movie or TV Marathon",
 
-      {
-        text: "Favourite Food Delivery",
-        lines: [
-          "Favourite Food",
-          "Delivery"
-        ],
-        font: 25
-      },
+      "Favourite Food Delivery",
 
-      {
-        text: "Premium Scratches Session",
-        lines: [
-          "Premium",
-          "Scratches",
-          "Session"
-        ],
-        font: 23
-      },
+      "Premium Scratches Session",
 
-      {
-        text: "Short Story of Our Love Story - New Theme Each Time",
-        lines: [
-          "Short Story",
-          "of Our Love",
-          "Story",
-          "New Theme",
-          "Each Time"
-        ],
-        font: 18
-      },
+      "Short Story of Our Love Story - New Theme Each Time",
 
-      {
-        text: "TV Show Edit",
-        lines: [
-          "TV Show",
-          "Edit"
-        ],
-        font: 29
-      },
+      "TV Show Edit",
 
-      {
-        text: "No-Complaints Errand Run",
-        lines: [
-          "No-Complaints",
-          "Errand Run"
-        ],
-        font: 23
-      },
+      "No-Complaints Errand Run",
 
-      {
-        text: "Apology Letter",
-        lines: [
-          "Apology",
-          "Letter"
-        ],
-        font: 28
-      },
+      "Apology Letter",
 
-      {
-        text: "Spa Night at Air B&B",
-        lines: [
-          "Spa Night",
-          "at Air B&B"
-        ],
-        font: 25
-      },
+      "Spa Night at Air B&B",
 
-      {
-        text: "Snack Basket Offering",
-        lines: [
-          "Snack Basket",
-          "Offering"
-        ],
-        font: 24
-      },
+      "Snack Basket Offering",
 
-      {
-        text: "Pop Playlist for Us",
-        lines: [
-          "Pop Playlist",
-          "for Us"
-        ],
-        font: 25
-      },
+      "Pop Playlist for Us",
 
-      {
-        text: "Memory Lane Slideshow",
-        lines: [
-          "Memory Lane",
-          "Slideshow"
-        ],
-        font: 24
-      },
+      "Memory Lane Slideshow",
 
-      {
-        text: "Next Car Maintenance",
-        lines: [
-          "Next Car",
-          "Maintenance"
-        ],
-        font: 25
-      },
+      "Next Car Maintenance",
 
-      {
-        text: "Cozy Blanket Fort Night",
-        lines: [
-          "Cozy Blanket",
-          "Fort Night"
-        ],
-        font: 23
-      },
+      "Cozy Blanket Fort Night",
 
-      {
-        text: "Handmade Coupon of Her Choice",
-        lines: [
-          "Handmade",
-          "Coupon",
-          "of Her Choice"
-        ],
-        font: 21
-      },
+      "Handmade Coupon of Her Choice",
 
-      {
-        text: "Plan the Next Cute Outing",
-        lines: [
-          "Plan the Next",
-          "Cute Outing"
-        ],
-        font: 23
-      },
+      "Plan the Next Cute Outing",
 
-      {
-        text: "Other of Your Choosing",
-        lines: [
-          "Other of Your",
-          "Choosing"
-        ],
-        font: 24
-      },
+      "Other of Your Choosing",
 
-      {
-        text: "New Innovative Idea",
-        lines: [
-          "New Innovative",
-          "Idea"
-        ],
-        font: 25
-      },
+      "New Innovative Idea",
 
-      {
-        text: "Full Day Princess Treatment",
-        lines: [
-          "Full Day",
-          "Princess",
-          "Treatment"
-        ],
-        font: 22
-      },
+      "Full Day Princess Treatment",
 
-      {
-        text: "Cook Egyptian Meal of Your Choosing with Tea",
-        lines: [
-          "Cook Egyptian",
-          "Meal",
-          "of Your",
-          "Choosing",
-          "with Tea"
-        ],
-        font: 18
-      },
+      "Cook Egyptian Meal of Your Choosing with Tea",
 
-      {
-        text: "Find New TV Show for Us",
-        lines: [
-          "Find New",
-          "TV Show",
-          "for Us"
-        ],
-        font: 22
-      },
+      "Find New TV Show for Us",
 
-      {
-        text: "Drives To and From Work for a Week",
-        lines: [
-          "Drives To",
-          "and From",
-          "Work",
-          "for a Week"
-        ],
-        font: 19
-      },
+      "Drives To and From Work for a Week",
 
-      {
-        text: "Drive Home, Even from Toronto, at Any Time of Your Choosing",
-        lines: [
-          "Drive Home",
-          "Even from",
-          "Toronto",
-          "Any Time",
-          "of Your",
-          "Choosing"
-        ],
-        font: 16
-      },
+      "Drive Home, Even from Toronto, at Any Time of Your Choosing",
 
-      {
-        text: "Buy New Article of Clothing of Your Choosing",
-        lines: [
-          "Buy New",
-          "Article of",
-          "Clothing",
-          "of Your",
-          "Choosing"
-        ],
-        font: 17
-      },
+      "Buy New Article of Clothing of Your Choosing",
 
-      {
-        text: "Buy New Perfume of Your Choosing",
-        lines: [
-          "Buy New",
-          "Perfume",
-          "of Your",
-          "Choosing"
-        ],
-        font: 19
-      }
+      "Buy New Perfume of Your Choosing"
 
     ];
 
@@ -974,10 +743,16 @@
       size / 2;
 
     const radius =
-      center - 20;
+      center - 24;
+
+
+    /*
+     * Smaller center area means the labels
+     * have MORE room to run toward the rim.
+     */
 
     const innerRadius =
-      170;
+      155;
 
 
     const sliceAngle =
@@ -993,7 +768,7 @@
 
 
     /* =========================================================
-       BACKGROUND WRITING
+       BACKGROUND TEXT
        ========================================================= */
 
     const backgroundPhrases = [
@@ -1089,51 +864,21 @@
 
     const heartPositions = [
 
-      [17,2],
-      [39,3],
-      [45,7],
-      [57,2],
-      [76,5],
-      [96,3],
+      [17,2],[39,3],[45,7],[57,2],[76,5],[96,3],
 
-      [8,10],
-      [34,12],
-      [61,10],
-      [73,13],
-      [92,12],
+      [8,10],[34,12],[61,10],[73,13],[92,12],
 
-      [4,22],
-      [17,24],
-      [39,21],
-      [82,21],
-      [97,24],
+      [4,22],[17,24],[39,21],[82,21],[97,24],
 
-      [8,37],
-      [19,36],
-      [78,36],
-      [92,38],
+      [8,37],[19,36],[78,36],[92,38],
 
-      [3,53],
-      [17,52],
-      [82,51],
-      [97,54],
+      [3,53],[17,52],[82,51],[97,54],
 
-      [8,69],
-      [21,69],
-      [76,68],
-      [92,70],
+      [8,69],[21,69],[76,68],[92,70],
 
-      [3,85],
-      [16,83],
-      [39,86],
-      [62,84],
-      [81,86],
-      [97,83],
+      [3,85],[16,83],[39,86],[62,84],[81,86],[97,83],
 
-      [8,96],
-      [35,95],
-      [71,96],
-      [91,95]
+      [8,96],[35,95],[71,96],[91,95]
 
     ];
 
@@ -1181,7 +926,8 @@
        BULBS
        ========================================================= */
 
-    const bulbCount = 24;
+    const bulbCount =
+      24;
 
 
     for (
@@ -1256,6 +1002,67 @@
 
 
     /* =========================================================
+       FIND THE BIGGEST FONT THAT FITS
+       ========================================================= */
+
+    function getFontSize(
+      text,
+      maxWidth
+    ) {
+
+      /*
+       * Start large.
+       */
+
+      let fontSize =
+        30;
+
+
+      /*
+       * Long prizes can shrink,
+       * but we keep them readable.
+       */
+
+      const minimumFontSize =
+        15;
+
+
+      while (
+        fontSize >
+        minimumFontSize
+      ) {
+
+        ctx.font =
+          `900 ${fontSize}px Inter, Arial`;
+
+
+        const width =
+          ctx.measureText(
+            text
+          ).width;
+
+
+        if (
+          width <=
+          maxWidth
+        ) {
+
+          break;
+
+        }
+
+
+        fontSize--;
+
+      }
+
+
+      return fontSize;
+
+    }
+
+
+    /* =========================================================
        DRAW WHEEL
        ========================================================= */
 
@@ -1295,7 +1102,7 @@
 
 
         /* =====================================================
-           DRAW SLICE
+           SLICE
            ===================================================== */
 
         ctx.beginPath();
@@ -1341,14 +1148,14 @@
 
 
         /* =====================================================
-           RADIAL TEXT
+           TEXT
            ===================================================== */
 
         ctx.save();
 
 
         /*
-         * Put origin in center of wheel.
+         * Center of wheel becomes 0,0.
          */
 
         ctx.translate(
@@ -1358,8 +1165,8 @@
 
 
         /*
-         * Point directly outward through
-         * the center of the current wedge.
+         * Rotate directly through the
+         * middle of this slice.
          */
 
         ctx.rotate(
@@ -1367,8 +1174,21 @@
         );
 
 
+        /*
+         * IMPORTANT:
+         *
+         * There is NO extra 90 degree rotation.
+         *
+         * The words therefore run:
+         *
+         * CENTER --------------------> EDGE
+         *
+         * instead of sideways.
+         */
+
+
         /* =====================================================
-           KEEP LEFT-SIDE TEXT READABLE
+           FLIP LEFT SIDE
            ===================================================== */
 
         const normalizedAngle =
@@ -1404,24 +1224,74 @@
 
 
         /* =====================================================
-           TEXT STYLE
+           AVAILABLE LENGTH
            ===================================================== */
 
+        /*
+         * Text begins outside the SPIN circle.
+         */
+
+        const textStart =
+          innerRadius + 42;
+
+
+        /*
+         * Text can continue almost to the rim.
+         */
+
+        const textEnd =
+          radius - 48;
+
+
+        const availableLength =
+          textEnd -
+          textStart;
+
+
+        /*
+         * Automatically calculate the largest
+         * font that allows the ENTIRE prize
+         * to fit on ONE line.
+         */
+
+        const fontSize =
+          getFontSize(
+            prize,
+            availableLength
+          );
+
+
         ctx.font =
-          `900 ${prize.font}px Inter, Arial`;
+          `900 ${fontSize}px Inter, Arial`;
 
 
         ctx.textBaseline =
           "middle";
 
 
-        ctx.textAlign =
-          "center";
-
-
         /*
-         * White on red wedges.
+         * Start at inner edge and write
+         * directly OUT toward rim.
          */
+
+        if (
+          flipped
+        ) {
+
+          ctx.textAlign =
+            "right";
+
+        } else {
+
+          ctx.textAlign =
+            "left";
+
+        }
+
+
+        /* =====================================================
+           COLOR
+           ===================================================== */
 
         if (
           i %
@@ -1433,16 +1303,16 @@
 
 
           ctx.shadowColor =
-            "rgba(60,0,20,0.25)";
+            "rgba(80,0,20,0.35)";
 
         } else {
 
           ctx.fillStyle =
-            "#120a10";
+            "#140a11";
 
 
           ctx.shadowColor =
-            "rgba(255,255,255,0.15)";
+            "rgba(255,255,255,0.18)";
 
         }
 
@@ -1452,152 +1322,35 @@
 
 
         /* =====================================================
-           AVAILABLE SPACE
+           DRAW ONE SINGLE LABEL
 
-           This is the key change.
+           NO wrapping.
+           NO stacked words.
+           NO multiple lines.
 
-           We use almost the entire length between
-           the center SPIN button and the rim.
+           Therefore the words cannot overlap
+           themselves.
            ===================================================== */
 
-        const innerTextEdge =
-          innerRadius + 65;
-
-
-        const outerTextEdge =
-          radius - 70;
-
-
-        const availableTextLength =
-          outerTextEdge -
-          innerTextEdge;
-
-
-        /*
-         * Determine where every line goes.
-
-         * TWO lines:
-         *
-         *       line 1
-         *
-         *
-         *                 line 2
-         *
-         *
-         * THREE lines:
-         *
-         *       line 1
-         *
-         *             line 2
-         *
-         *                   line 3
-         *
-         * etc.
-         *
-         * They are distributed across the
-         * available wedge length instead of
-         * being packed together.
-         */
-
-
-        let positions = [];
-
-
         if (
-          prize.lines.length === 1
+          flipped
         ) {
 
-          positions = [
-            innerTextEdge +
-            availableTextLength *
-            0.55
-          ];
+          ctx.fillText(
+            prize,
+            -textStart,
+            0
+          );
 
         } else {
 
-          /*
-           * Leave a little breathing room
-           * on both ends.
-           */
-
-          const start =
-            innerTextEdge +
-            availableTextLength *
-            0.08;
-
-
-          const end =
-            outerTextEdge -
-            availableTextLength *
-            0.08;
-
-
-          const spacing =
-            (
-              end -
-              start
-            ) /
-            (
-              prize.lines.length -
-              1
-            );
-
-
-          for (
-            let lineIndex = 0;
-            lineIndex <
-            prize.lines.length;
-            lineIndex++
-          ) {
-
-            positions.push(
-              start +
-              lineIndex *
-              spacing
-            );
-
-          }
+          ctx.fillText(
+            prize,
+            textStart,
+            0
+          );
 
         }
-
-
-        /* =====================================================
-           DRAW EACH PIECE
-
-           Every line gets its OWN radial position.
-           ===================================================== */
-
-        prize.lines.forEach(
-          (line, lineIndex) => {
-
-            let x =
-              positions[
-                lineIndex
-              ];
-
-
-            /*
-             * When the coordinate system has
-             * been flipped on the left side,
-             * move in the opposite X direction.
-             */
-
-            if (flipped) {
-
-              x =
-                -x;
-
-            }
-
-
-            ctx.fillText(
-              line,
-              x,
-              0
-            );
-
-          }
-        );
 
 
         ctx.restore();
@@ -1674,8 +1427,12 @@
 
     function spinWheel() {
 
-      if (spinning) {
+      if (
+        spinning
+      ) {
+
         return;
+
       }
 
 
@@ -1713,8 +1470,8 @@
 
 
       /*
-       * Position center of winning slice
-       * directly under pointer.
+       * Center selected wedge
+       * underneath pointer.
        */
 
       const target =
@@ -1753,7 +1510,7 @@
 
 
       /*
-       * Ten full spins.
+       * Ten complete rotations.
        */
 
       const extraSpins =
@@ -1775,14 +1532,14 @@
 
 
       /* =====================================================
-         SHOW WINNER
+         RESULT
          ===================================================== */
 
       setTimeout(
         () => {
 
           result.innerHTML =
-            `♥&nbsp;&nbsp;${prizes[randomIndex].text}&nbsp;&nbsp;♥`;
+            `♥&nbsp;&nbsp;${prizes[randomIndex]}&nbsp;&nbsp;♥`;
 
 
           spinBtn.disabled =
